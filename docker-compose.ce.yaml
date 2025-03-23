@@ -81,9 +81,9 @@ services:
      # - "7474:7474" # HTTP
       #- "7687:7687" # Bolt
     #volumes:
-      - neo4j_data:/data
+     # - neo4j_data:/data
     #environment:
-      - NEO4J_AUTH=neo4j/zepzepzep
+     # - NEO4J_AUTH=neo4j/zepzepzep
 volumes:
   #neo4j_data:
   zep-db:
