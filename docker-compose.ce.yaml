@@ -15,8 +15,8 @@ services:
     networks:
       - zep-network
     depends_on:
-      graphiti:
-        condition: service_healthy
+     # graphiti:
+      #  condition: service_healthy
       db:
         condition: service_healthy
   db:
@@ -38,25 +38,25 @@ services:
       - zep-db:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-  graphiti:
-    image: zepai/graphiti:0.3
-    ports:
-      - "8003:8003"
-    env_file:
-      - .env
-    networks:
-      - zep-network
-    healthcheck:
-      test:
-        [
-          "CMD",
-          "python",
-          "-c",
-          "import urllib.request; urllib.request.urlopen('http://localhost:8003/healthcheck')",
-        ]
-      interval: 10s
-      timeout: 5s
-      retries: 3
+#  graphiti:
+ #   image: zepai/graphiti:0.3
+ #   ports:
+ #     - "8003:8003"
+ #   env_file:
+  #    - .env
+#    networks:
+#      - zep-network
+ #   healthcheck:
+   #  test:
+ #       [
+ #         "CMD",
+   #       "python",
+    #      "-c",
+    #      "import urllib.request; urllib.request.urlopen('http://localhost:8003/healthcheck')",
+     #   ]
+   #   interval: 10s
+    #  timeout: 5s
+     # retries: 3
    # depends_on:
     #  neo4j:
      #   condition: service_healthy
